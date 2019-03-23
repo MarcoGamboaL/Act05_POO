@@ -67,4 +67,11 @@ public void setAgudos (int losAgudos ){
     this.agudos  = losAgudos ;
 
 }
+
+
+    @Override
+    public String toString() {
+        return "Equalizador " + "volumen=" + volumen + ", bajos=" + bajos + ", agudos=" + agudos + '\n';
+    }
+    
 }

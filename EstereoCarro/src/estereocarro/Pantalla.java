@@ -48,5 +48,12 @@ public class Pantalla {
         this.esDesmontable = esDesmontable;
     }    
     
+    
+    @Override
+    public String toString() {
+        return "Pantalla " + "dimensiones=" + dimensiones + ", esDesmontable=" + esDesmontable + ", esTactil=" + esTactil + '\n';
+    }
+    
+    
 }
 
