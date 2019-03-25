@@ -9,21 +9,21 @@ package estereocarro;
  *
  * @author tania
  */
-public class Pantalla {
-    private String  dimensiones  ;
+public class Pantalla {//atributos de la clase
+    private String  dimensiones;
     private boolean esDesmontable;
-    private boolean esTactil     ;
+    private boolean esTactil;
     
-    public Pantalla(){
+    public Pantalla(){//constructor
     }
 
-    public Pantalla(String dimensiones, boolean esDesmontable, boolean esTactil){
+    public Pantalla(String dimensiones, boolean esDesmontable, boolean esTactil){//constructor sobrecargado
         this.dimensiones   = dimensiones;
         this.esDesmontable = esDesmontable;
-        this.esTactil      = esTactil;
+        this.esTactil = esTactil;
         
     }
-    
+    //setters and getters
     public String getDimensiones (){
      return dimensiones;   
     }
@@ -47,12 +47,12 @@ public class Pantalla {
     public void setEsDesmontable (boolean esDesmontable){
         this.esDesmontable = esDesmontable;
     }    
-    
-    
+
     @Override
     public String toString() {
-        return "Pantalla " + "dimensiones=" + dimensiones + ", esDesmontable=" + esDesmontable + ", esTactil=" + esTactil + '\n';
+        return "Pantalla{" + "dimensiones=" + dimensiones + ", esDesmontable=" + esDesmontable + ", esTactil=" + esTactil + '}';
     }
+    
     
     
 }

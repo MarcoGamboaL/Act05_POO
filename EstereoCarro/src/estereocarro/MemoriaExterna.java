@@ -11,7 +11,28 @@ package estereocarro;
  */
 public class MemoriaExterna {
 
+    private TipoMemoria tipo;
+    private Object contenido;
+    
     public MemoriaExterna() {
     }
+
+    public TipoMemoria getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoMemoria tipo) {
+        this.tipo = tipo;
+    }
+
+    public Object getContenido() {
+        return contenido;
+    }
+
+    public void setContenido(Object contenido) {
+        this.contenido = contenido;
+    }
+    
+    
     
 }

@@ -12,6 +12,7 @@ package estereocarro;
 public class Dispositivo {
     
     public Dispositivo() {
+        
     }
   
     

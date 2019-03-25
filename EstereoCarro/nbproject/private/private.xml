@@ -3,8 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/tania/OneDrive/UNIVERSIDAD/POO/TAREAS/5/Act05_POO-master/EstereoCarro/src/estereocarro/Principal.java</file>
-            <file>file:/C:/Users/tania/OneDrive/UNIVERSIDAD/POO/TAREAS/5/Act05_POO-master/EstereoCarro/src/estereocarro/TipoBanda.java</file>
+            <file>file:/C:/Users/Daniel/Desktop/EstereoCarro/src/estereocarro/Pantalla.java</file>
+            <file>file:/C:/Users/Daniel/Desktop/EstereoCarro/src/estereocarro/Dispositivo.java</file>
+            <file>file:/C:/Users/Daniel/Desktop/EstereoCarro/src/estereocarro/Equalizador.java</file>
+            <file>file:/C:/Users/Daniel/Desktop/EstereoCarro/src/estereocarro/Banda.java</file>
+            <file>file:/C:/Users/Daniel/Desktop/EstereoCarro/src/estereocarro/TipoMemoria.java</file>
+            <file>file:/C:/Users/Daniel/Desktop/EstereoCarro/src/estereocarro/MemoriaExterna.java</file>
+            <file>file:/C:/Users/Daniel/Desktop/EstereoCarro/src/estereocarro/EstereoCarro.java</file>
+            <file>file:/C:/Users/Daniel/Desktop/EstereoCarro/src/estereocarro/TipoBanda.java</file>
+            <file>file:/C:/Users/Daniel/Desktop/EstereoCarro/src/estereocarro/Bluetooth.java</file>
+            <file>file:/C:/Users/Daniel/Desktop/EstereoCarro/src/estereocarro/Emisora.java</file>
+            <file>file:/C:/Users/Daniel/Desktop/EstereoCarro/src/estereocarro/RadioEstereo.java</file>
         </group>
     </open-files>
 </project-private>

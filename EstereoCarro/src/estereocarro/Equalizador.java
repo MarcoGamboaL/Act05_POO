@@ -10,9 +10,7 @@ package estereocarro;
  * @author tania
  */
 
-//FALTA LA WEA DEL TO STRING
-
-//CREAO LA CLASE EQUALIZADOR
+//CREA LA CLASE EQUALIZADOR
 public class Equalizador {
     
     //INICIALIZO LOS VALORES PRIVADOS
@@ -20,7 +18,9 @@ public class Equalizador {
     private int bajos  ;
     private int agudos ;
 
-   public Equalizador(){};//NECESITO VER BIEN PARA QUE SIRVE ESTE PEDAZO DE CODIGO
+   public Equalizador(){
+   
+   };//constructor de la clase 
 
 
 public Equalizador (int elVolumen, int losBajos, int losAgudos){
@@ -30,7 +30,7 @@ public Equalizador (int elVolumen, int losBajos, int losAgudos){
     this.bajos   = losBajos ;
     this.agudos  = losAgudos;
     
-}
+}//constructor sobrecargado de la clase
 
 // A PARTIR DE AQUIE ESTAN LOS GET DE LA CLASE
 
@@ -68,10 +68,11 @@ public void setAgudos (int losAgudos ){
 
 }
 
-
     @Override
     public String toString() {
-        return "Equalizador " + "volumen=" + volumen + ", bajos=" + bajos + ", agudos=" + agudos + '\n';
+        return "Equalizador{" + "volumen=" + volumen + ", bajos=" + bajos + ", agudos=" + agudos + '}';
     }
-    
+
+
+
 }

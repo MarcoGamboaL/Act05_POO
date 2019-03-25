@@ -6,6 +6,7 @@
 package estereocarro;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -41,7 +42,7 @@ public class Bluetooth {
         this.vinculado = vinculado;
     }
 
-    public ArrayList getDispVinculados() {
+    public List getDispVinculados() {
         return dispVinculados;
     }
 
@@ -64,7 +65,7 @@ public class Bluetooth {
         this.encendido=false;
     }
     
-    public ArrayList buscarDispositivos(){
+    public List buscarDispositivos(){
        return  this.getDispVinculados();//probalemente mal, de ser necesario corregir
     }
     

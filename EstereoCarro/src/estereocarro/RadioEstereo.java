@@ -6,31 +6,34 @@
 package estereocarro;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 /**
  *
  * @author Daniel
- * Falta revisar y agregar todas las validaciones las cuales se debe agregar
- * cuando estén implementadas todas las clases
- * Algunos metodos deben ser revisados.
  * 
  */
 public class RadioEstereo {
     private String marca;
     private String dimensiones;
-    private ArrayList memoriaAM = new ArrayList(6) ;
-    private ArrayList memoriaFM = new ArrayList(18);
+    private Emisora[] memoriaAM = new Emisora[6] ;
+    private Emisora[] memoriaFM = new Emisora[18];
     private TipoBanda bandaActual;
     private Emisora emisoraActual;
     private Bluetooth elBluetooth;
-    private ArrayList memoriasExternas = new ArrayList();
+    private ArrayList <MemoriaExterna>memoriasExternas = new ArrayList();
     private MemoriaExterna memExternaSeleccionada;
     private boolean encendido;
 
     public RadioEstereo() {
+        
     }
 
     public RadioEstereo(String marca, String dimensiones, TipoBanda bandaActual, Emisora emisoraActual, Bluetooth elBluetooth, MemoriaExterna memExternaSeleccionada, boolean encendido) {
+        
         this.marca = marca;
         this.dimensiones = dimensiones;
         this.bandaActual = bandaActual;
@@ -56,19 +59,19 @@ public class RadioEstereo {
         this.dimensiones = dimensiones;
     }
 
-    public ArrayList getMemoriaAM() {
+    public Emisora[] getMemoriaAM() {
         return memoriaAM;
     }
 
-    public void setMemoriaAM(ArrayList memoriaAM) {
+    public void setMemoriaAM(Emisora[] memoriaAM) {
         this.memoriaAM = memoriaAM;
     }
 
-    public ArrayList getMemoriaFM() {
+    public Emisora[] getMemoriaFM() {
         return memoriaFM;
     }
 
-    public void setMemoriaFM(ArrayList memoriaFM) {
+    public void setMemoriaFM(Emisora[] memoriaFM) {
         this.memoriaFM = memoriaFM;
     }
 
@@ -78,6 +81,7 @@ public class RadioEstereo {
 
     public void setBandaActual(TipoBanda bandaActual) {
         this.bandaActual = bandaActual;
+        
     }
 
     public Emisora getEmisoraActual() {
@@ -96,7 +100,7 @@ public class RadioEstereo {
         this.elBluetooth = elBluetooth;
     }
 
-    public ArrayList getMemoriasExternas() {
+    public List getMemoriasExternas() {
         return memoriasExternas;
     }
 
@@ -112,7 +116,7 @@ public class RadioEstereo {
         this.memExternaSeleccionada = memExternaSeleccionada;
     }
 
-    public boolean isEncendido() {
+    public boolean estaEncendido() {
         return encendido;
     }
 
@@ -130,47 +134,68 @@ public class RadioEstereo {
     }
     
     public void asignarEmisoraAMemoria(TipoBanda banda,int numMemoria,Emisora emisora){
-        if(banda==TipoBanda.AM){
-            memoriaAM.add(numMemoria, emisora);
+       if(banda==TipoBanda.AM){
+            if(numMemoria >= 0 && numMemoria < memoriaAM.length){
+                memoriaAM[numMemoria]=emisora;
+            }
         }
         if(banda==TipoBanda.FM){
-            memoriaFM.add(numMemoria, emisora);
+            if(numMemoria >= 0 && numMemoria < memoriaFM.length){
+            memoriaFM[numMemoria] = emisora ;
+            
+            }
         }
     }
     
-    public void  getMemoria(TipoBanda banda,int posicion){
-        if(banda==TipoBanda.AM){
-          memoriaAM.get(posicion).toString();
+    public Emisora getMemoria(TipoBanda banda,int posicion){//falla se debe corregir
+        if(banda==TipoBanda.AM && posicion<memoriaAM.length && memoriaAM[posicion]!=null){
+            System.out.println("Emisora guardada: "+memoriaAM[posicion].toString());
+            return memoriaAM[posicion];
         }
-        if(banda==TipoBanda.FM){
-            memoriaFM.get(posicion).toString();
+        if(banda==TipoBanda.FM && posicion<memoriaFM.length && memoriaFM[posicion]!=null){
+            System.out.println("Emisora Guardada: "+memoriaFM[posicion].toString());
+            
         }
+        
+        return null;
     }
     
     public void hacerScan(Banda laBanda){//agregar clase banda y como recorrer la misma
+      int numero= (int) (Math.random()*laBanda.getListaEmisoras().size());//seleciona un numero aleatorio entre los elementos de la banda
         
+        //se Establece la emisora actual en la emisora encontrada por el Scan
+        Object [] array = laBanda.getListaEmisoras().toArray();
+        Emisora emisoraAleatoria = (Emisora) array[numero];
+        emisoraActual = emisoraAleatoria;
+        System.out.println("Esta escuchando: "+emisoraActual.getFrecuencia()+" "+emisoraActual.getNombre());//indica cual emisora esta sonando 
+        
+        /**El metodo en comentarios abajo debería:
+         * mostrar la informacion de todas las emisoras
+         * en la banda seleccionada, 
+         * esperando 5 segundos entre una y otra
+         */
+        
+     /* for (int i=0; i<laBanda.getListaEmisoras().size(); i++){
+          new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                
+            }
+        }, 5000); 
+        System.out.println("Esta escuchando: "+laBanda.getListaEmisoras().get(i).toString());*/
     }
-    
+        
+        
+        
+   
     public void setSigEmisora(TipoBanda banda){
-        if(banda==TipoBanda.AM){
-            int posSig=memoriaAM.indexOf(emisoraActual)+1;
-          //  emisoraActual=memoriaAM[posSig];//revisar corregir
-        }
-        if(banda==TipoBanda.FM){
-            int posSig=memoriaFM.indexOf(emisoraActual)+1;
-          //  emisoraActual=memoriaFM[posSig];//revisar corregir
-        }
+        if(banda==TipoBanda.AM && bandaActual==TipoBanda.AM){
+            
+    }
     }
     
   public void setAntEmisora(TipoBanda banda){
-        if(banda==TipoBanda.AM){
-            int posAnt=memoriaAM.indexOf(emisoraActual)-1;
-          //  emisoraActual=memoriaAM[posAnt];//revisar corregir
-        }
-        if(banda==TipoBanda.FM){
-            int posAnt=memoriaFM.indexOf(emisoraActual)-1;
-          //  emisoraActual=memoriaFM[posAnt];//revisar corregir
-        }
+       
     } 
   
   public void reproducirEmisora(){
@@ -184,5 +209,6 @@ public class RadioEstereo {
   public void reproducirDesdeMemoriaExterna(){
       System.out.println("Se esta reproduciendo desde: Memoria Externa");
   }
+ 
   
 }
